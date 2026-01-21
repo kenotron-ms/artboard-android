@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Artboard</string>
+    <string name="new_project">New Project</string>
+    <string name="save">Save</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+    <string name="clear">Clear</string>
+    <string name="layers">Layers</string>
+    <string name="add_layer">Add Layer</string>
+    <string name="delete_layer">Delete Layer</string>
+    <string name="brush">Brush</string>
+    <string name="eraser">Eraser</string>
+    <string name="color">Color</string>
+</resources>
