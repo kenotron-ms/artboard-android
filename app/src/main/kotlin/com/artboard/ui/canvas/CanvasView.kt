@@ -111,9 +111,9 @@ class CanvasView @JvmOverloads constructor(
     }
     
     /**
-     * Set background color
+     * Set canvas background color
      */
-    fun setBackgroundColor(color: Int) {
+    fun setCanvasBackgroundColor(color: Int) {
         backgroundColor = color
         invalidate()
     }
