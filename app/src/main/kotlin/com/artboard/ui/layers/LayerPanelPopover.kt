@@ -186,7 +186,7 @@ fun LayerPanelPopover(
                     )
                     
                     // Divider
-                    HorizontalDivider(
+                    Divider(
                         thickness = 1.dp,
                         color = Color.White.copy(alpha = 0.1f)
                     )
@@ -211,7 +211,7 @@ fun LayerPanelPopover(
                     )
                     
                     // Divider
-                    HorizontalDivider(
+                    Divider(
                         thickness = 1.dp,
                         color = Color.White.copy(alpha = 0.1f)
                     )

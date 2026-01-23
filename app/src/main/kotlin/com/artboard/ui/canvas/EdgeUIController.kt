@@ -158,7 +158,7 @@ class EdgeUIController {
      * Update brush size.
      * @param size New size in pixels (will be clamped to 1-500)
      */
-    fun setBrushSize(size: Float) {
+    fun updateBrushSize(size: Float) {
         brushSize = size.coerceIn(1f, 500f)
         onBrushSizeChange?.invoke(brushSize)
         restoreUIAndResetTimer()
@@ -168,7 +168,7 @@ class EdgeUIController {
      * Update brush opacity.
      * @param opacity New opacity (will be clamped to 0-1)
      */
-    fun setBrushOpacity(opacity: Float) {
+    fun updateBrushOpacity(opacity: Float) {
         brushOpacity = opacity.coerceIn(0f, 1f)
         onOpacityChange?.invoke(brushOpacity)
         restoreUIAndResetTimer()
@@ -403,7 +403,7 @@ class EdgeUIController {
  * 
  * // Wire up to ViewModel
  * LaunchedEffect(Unit) {
- *     edgeController.onBrushSizeChange = { viewModel.setBrushSize(it) }
+ *     edgeController.onBrushSizeChange = { viewModel.updateBrushSize(it) }
  *     edgeController.onColorChange = { viewModel.setColor(it) }
  *     // ... etc
  * }
@@ -411,7 +411,7 @@ class EdgeUIController {
  * // Use in composables
  * LeftEdgeControls(
  *     brushSize = edgeController.brushSize,
- *     onSizeChange = { edgeController.setBrushSize(it) }
+ *     onSizeChange = { edgeController.updateBrushSize(it) }
  * )
  * ```
  */
@@ -435,8 +435,8 @@ fun EdgeUIController.initializeFrom(
 ) {
     // Use reflection-free approach: create new values
     // The private setters ensure state consistency
-    setBrushSize(brushSize)
-    setBrushOpacity(brushOpacity)
+    updateBrushSize(brushSize)
+    updateBrushOpacity(brushOpacity)
     setColor(currentColor)
     selectBrush(currentBrush)
     updateHistoryState(canUndo, canRedo)

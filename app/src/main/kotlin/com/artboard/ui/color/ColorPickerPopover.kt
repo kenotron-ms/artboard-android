@@ -11,7 +11,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -187,7 +186,7 @@ fun ColorPickerPopover(
                     )
                     
                     // Divider
-                    HorizontalDivider(
+                    Divider(
                         modifier = Modifier.padding(vertical = 8.dp),
                         thickness = 1.dp,
                         color = Color.White.copy(alpha = 0.1f)
@@ -204,7 +203,7 @@ fun ColorPickerPopover(
                     )
                     
                     // Divider
-                    HorizontalDivider(
+                    Divider(
                         modifier = Modifier.padding(vertical = 8.dp),
                         thickness = 1.dp,
                         color = Color.White.copy(alpha = 0.1f)

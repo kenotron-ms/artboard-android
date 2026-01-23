@@ -135,7 +135,7 @@ fun CanvasScreenV2(
     // Wire up controller callbacks to ViewModel
     LaunchedEffect(Unit) {
         edgeController.onBrushSizeChange = { size ->
-            // TODO: viewModel.setBrushSize(size)
+            // TODO: viewModel.updateBrushSize(size)
         }
         edgeController.onOpacityChange = { opacity ->
             // TODO: viewModel.setOpacity(opacity)
@@ -283,8 +283,8 @@ fun CanvasScreenV2(
                 brushOpacity = edgeController.brushOpacity,
                 currentColor = currentColor,
                 isEyedropperActive = edgeController.isEyedropperActive,
-                onSizeChange = { edgeController.setBrushSize(it) },
-                onOpacityChange = { edgeController.setBrushOpacity(it) },
+                onSizeChange = { edgeController.updateBrushSize(it) },
+                onOpacityChange = { edgeController.updateBrushOpacity(it) },
                 onEyedropperClick = { edgeController.toggleEyedropper() },
                 controlsAlpha = edgeAlpha,
                 enabled = !popoverManager.hasOpenPopover()

@@ -78,10 +78,8 @@ fun CompactBrushGrid(
                         isFavorite = isFavorite(brush),
                         onClick = { onBrushSelected(brush) },
                         onFavoriteClick = { onFavoriteToggle(brush) },
-                        modifier = Modifier.animateItem(
-                            fadeInSpec = tween(150),
-                            fadeOutSpec = tween(150),
-                            placementSpec = spring(
+                        modifier = Modifier.animateItemPlacement(
+                            animationSpec = spring(
                                 dampingRatio = Spring.DampingRatioMediumBouncy,
                                 stiffness = Spring.StiffnessMedium
                             )
