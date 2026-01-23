@@ -41,6 +41,16 @@ class CanvasViewModel : ViewModel() {
     private val _canRedo = MutableStateFlow(false)
     val canRedo: StateFlow<Boolean> = _canRedo.asStateFlow()
     
+    // UI visibility state
+    private val _toolbarVisible = MutableStateFlow(true)
+    val toolbarVisible: StateFlow<Boolean> = _toolbarVisible.asStateFlow()
+    
+    private val _statusBarVisible = MutableStateFlow(true)
+    val statusBarVisible: StateFlow<Boolean> = _statusBarVisible.asStateFlow()
+    
+    private val _isDrawing = MutableStateFlow(false)
+    val isDrawing: StateFlow<Boolean> = _isDrawing.asStateFlow()
+    
     // History
     private val historyManager = HistoryManager()
     private var layerManager: LayerManager? = null
@@ -230,5 +240,55 @@ class CanvasViewModel : ViewModel() {
      */
     fun getLayers(): List<Layer> {
         return _project.value?.layers ?: emptyList()
+    }
+    
+    /**
+     * Show UI (toolbar and status bar)
+     */
+    fun showUI() {
+        _toolbarVisible.value = true
+        _statusBarVisible.value = true
+    }
+    
+    /**
+     * Hide UI (toolbar and status bar)
+     */
+    fun hideUI() {
+        if (!_isDrawing.value) {
+            _toolbarVisible.value = false
+            _statusBarVisible.value = false
+        }
+    }
+    
+    /**
+     * Toggle UI visibility
+     */
+    fun toggleUI() {
+        if (_toolbarVisible.value) {
+            hideUI()
+        } else {
+            showUI()
+        }
+    }
+    
+    /**
+     * User interaction - reset auto-hide timer
+     */
+    fun onInteraction() {
+        showUI()
+    }
+    
+    /**
+     * Drawing started - keep UI visible
+     */
+    fun onDrawingStarted() {
+        _isDrawing.value = true
+    }
+    
+    /**
+     * Drawing ended - resume auto-hide
+     */
+    fun onDrawingEnded() {
+        _isDrawing.value = false
     }
 }

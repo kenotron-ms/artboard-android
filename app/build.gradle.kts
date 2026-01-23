@@ -36,6 +36,9 @@ android {
     
     kotlinOptions {
         jvmTarget = "17"
+        freeCompilerArgs += listOf(
+            "-opt-in=androidx.compose.foundation.ExperimentalFoundationApi"
+        )
     }
     
     buildFeatures {
@@ -78,6 +81,9 @@ dependencies {
     
     // Core KTX
     implementation("androidx.core:core-ktx:1.12.0")
+    
+    // Coil for image loading
+    implementation("io.coil-kt:coil-compose:2.5.0")
     
     // Debug
     debugImplementation("androidx.compose.ui:ui-tooling")

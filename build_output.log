@@ -1,0 +1,767 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:buildKotlinToolingMetadata
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseResValues
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:checkReleaseAarMetadata
+> Task :app:packageReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:parseReleaseLocalResources
+> Task :app:extractDeepLinksRelease
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:javaPreCompileRelease
+> Task :app:extractProguardFiles
+> Task :app:mergeReleaseJniLibFolders
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:desugarReleaseFileDependencies
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:mergeReleaseResources
+> Task :app:mergeReleaseArtProfile
+> Task :app:mergeReleaseShaders
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:javaPreCompileReleaseUnitTest
+> Task :app:processReleaseManifestForPackage
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:processReleaseResources
+> Task :app:optimizeReleaseResources
+> Task :app:mergeExtDexRelease
+
+> Task :app:compileReleaseKotlin FAILED
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/ProjectSummary.kt:54:46 None of the following functions can be called with the arguments supplied: 
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> BigDecimal): BigDecimal defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> BigInteger): BigInteger defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> Double): Double defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> Int): Int defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> Long): Long defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> UInt): UInt defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> ULong): ULong defined in kotlin.collections
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/ProjectSummary.kt:54:57 Unresolved reference: strokes
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/SelectionMask.kt:326:34 Type mismatch: inferred type is android.graphics.Rect but com.artboard.data.model.Rect was expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/SelectionMask.kt:328:16 Type mismatch: inferred type is android.graphics.Rect but com.artboard.data.model.Rect was expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/SelectionMask.kt:357:28 Function invocation 'isEmpty()' expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/storage/FileValidator.kt:125:40 Smart cast to 'ProjectData' is impossible, because 'projectData' is a local variable that is captured by a changing closure
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:18:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:82:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:109:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:136:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:170:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:204:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/layer/LayerManager.kt:68:72 Unresolved reference: DIFFERENCE
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/haptics/HapticIntegrationExamples.kt:341:19 Unresolved reference: launch
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/haptics/HapticIntegrationExamples.kt:343:30 Suspend function 'invoke' should be called only from a coroutine or another suspend function
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/haptics/HapticIntegrationExamples.kt:612:13 Unresolved reference: detectTapGestures
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/AnimationExtensions.kt:203:22 Unresolved reference: dp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/AnimationExtensions.kt:328:20 Unresolved reference: dp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:460:30 Unresolved reference: graphicsLayer
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:460:46 Unresolved reference: rotationZ
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:597:18 Unresolved reference: graphicsLayer
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:597:34 Unresolved reference: alpha
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/ListAnimations.kt:172:5 Unresolved reference: animateItemPlacement
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/ListAnimations.kt:348:5 Unresolved reference: animateItemPlacement
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/LoadingAnimations.kt:113:9 None of the following functions can be called with the arguments supplied: 
+public fun CircularProgressIndicator(modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+public fun CircularProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/LoadingAnimations.kt:122:9 None of the following functions can be called with the arguments supplied: 
+public fun CircularProgressIndicator(modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+public fun CircularProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/LoadingAnimations.kt:171:9 None of the following functions can be called with the arguments supplied: 
+public fun LinearProgressIndicator(modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+public fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/SharedElementTransitions.kt:12:8 Unresolved reference: coil
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/SharedElementTransitions.kt:116:9 Unresolved reference: AsyncImage
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/SharedElementTransitions.kt:145:9 Unresolved reference: AsyncImage
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/brush/BrushSelectorPanel.kt:112:49 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/brush/components/BrushPreviewGenerator.kt:60:13 Cannot find a parameter with this name: timestamp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/brush/components/BrushPreviewGenerator.kt:95:13 Cannot find a parameter with this name: timestamp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/canvas/CanvasScreen.kt:97:17 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public fun Modifier.detectFourFingerTap(onTap: () -> Unit): Modifier defined in com.artboard.ui.canvas in file GestureUtils.kt
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/canvas/CanvasScreen.kt:106:17 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public fun Modifier.detectEdgeTap(edgeMargin: Dp = ..., onEdgeTap: (Edge) -> Unit): Modifier defined in com.artboard.ui.canvas in file GestureUtils.kt
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/color/ColorPickerViewModel.kt:32:36 Unresolved reference: viewModelScope
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/color/components/RecentColorsBar.kt:90:48 Unresolved reference: launch
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/color/components/RecentColorsBar.kt:91:40 Suspend function 'delay' should be called only from a coroutine or another suspend function
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryScreen.kt:124:37 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryScreen.kt:142:37 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryViewModel.kt:22:78 No value passed for parameter 'context'
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryViewModel.kt:171:41 Unresolved reference: copy
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/components/ProjectCard.kt:36:8 Unresolved reference: coil
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/components/ProjectCard.kt:98:17 Unresolved reference: AsyncImage
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gestures/GestureHandler.kt:266:47 Cannot access 'screenWidth': it is private in 'EdgeSwipeDetector'
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gestures/GestureHandler.kt:267:47 Cannot access 'screenHeight': it is private in 'EdgeSwipeDetector'
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/layers/LayerPanel.kt:135:45 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/layers/components/LayerCard.kt:98:18 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/layers/components/LayerCardWithHaptics.kt:131:18 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:42:22 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:46:20 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:46:31 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:47:34 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:47:45 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:51:9 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:52:21 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:70:13 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:70:24 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:98:35 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:98:46 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/SelectionMode.kt:206:34 Type mismatch: inferred type is com.artboard.data.model.Rect but android.graphics.Rect was expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:21:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:70:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:127:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:168:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:187:30 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public infix fun Byte.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Byte.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Char.until(to: Char): CharRange defined in kotlin.ranges
+public infix fun Int.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Int.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Long.until(to: Byte): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Int): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Short): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun UByte.until(to: UByte): UIntRange defined in kotlin.ranges
+public infix fun UInt.until(to: UInt): UIntRange defined in kotlin.ranges
+public infix fun ULong.until(to: ULong): ULongRange defined in kotlin.ranges
+public infix fun UShort.until(to: UShort): UIntRange defined in kotlin.ranges
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:188:35 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public infix fun Byte.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Byte.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Char.until(to: Char): CharRange defined in kotlin.ranges
+public infix fun Int.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Int.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Long.until(to: Byte): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Int): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Short): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun UByte.until(to: UByte): UIntRange defined in kotlin.ranges
+public infix fun UInt.until(to: UInt): UIntRange defined in kotlin.ranges
+public infix fun ULong.until(to: ULong): ULongRange defined in kotlin.ranges
+public infix fun UShort.until(to: UShort): UIntRange defined in kotlin.ranges
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:231:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:256:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:291:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:354:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:55:20 Function invocation 'isEmpty()' expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:204:14 Unresolved reference: drawBehind
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:205:17 Unresolved reference: drawRoundRect
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:216:31 Unresolved reference: sp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:236:14 Unresolved reference: drawBehind
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:237:17 Unresolved reference: drawRoundRect
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:248:31 Unresolved reference: sp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionToolbar.kt:204:39 Smart cast to 'SelectionMask' is impossible, because 'selectionMask' is a property that has open or custom getter
+
+> Task :app:compileDebugKotlin
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/ProjectSummary.kt:54:46 None of the following functions can be called with the arguments supplied: 
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> BigDecimal): BigDecimal defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> BigInteger): BigInteger defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> Double): Double defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> Int): Int defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> Long): Long defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> UInt): UInt defined in kotlin.collections
+public inline fun <T> Iterable<TypeVariable(T)>.sumOf(selector: (TypeVariable(T)) -> ULong): ULong defined in kotlin.collections
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/ProjectSummary.kt:54:57 Unresolved reference: strokes
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/SelectionMask.kt:326:34 Type mismatch: inferred type is android.graphics.Rect but com.artboard.data.model.Rect was expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/SelectionMask.kt:328:16 Type mismatch: inferred type is android.graphics.Rect but com.artboard.data.model.Rect was expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/model/SelectionMask.kt:357:28 Function invocation 'isEmpty()' expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/data/storage/FileValidator.kt:125:40 Smart cast to 'ProjectData' is impossible, because 'projectData' is a local variable that is captured by a changing closure
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:18:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:82:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:109:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:136:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:170:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/history/commands/TransformCommand.kt:204:5 Inheritor of sealed class or interface declared in package com.artboard.domain.history.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/domain/layer/LayerManager.kt:68:72 Unresolved reference: DIFFERENCE
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/haptics/HapticIntegrationExamples.kt:341:19 Unresolved reference: launch
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/haptics/HapticIntegrationExamples.kt:343:30 Suspend function 'invoke' should be called only from a coroutine or another suspend function
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/haptics/HapticIntegrationExamples.kt:612:13 Unresolved reference: detectTapGestures
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/AnimationExtensions.kt:203:22 Unresolved reference: dp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/AnimationExtensions.kt:328:20 Unresolved reference: dp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:460:30 Unresolved reference: graphicsLayer
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:460:46 Unresolved reference: rotationZ
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:597:18 Unresolved reference: graphicsLayer
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/FeedbackAnimations.kt:597:34 Unresolved reference: alpha
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/ListAnimations.kt:172:5 Unresolved reference: animateItemPlacement
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/ListAnimations.kt:348:5 Unresolved reference: animateItemPlacement
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/LoadingAnimations.kt:113:9 None of the following functions can be called with the arguments supplied: 
+public fun CircularProgressIndicator(modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+public fun CircularProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/LoadingAnimations.kt:122:9 None of the following functions can be called with the arguments supplied: 
+public fun CircularProgressIndicator(modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+public fun CircularProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., strokeWidth: Dp = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/LoadingAnimations.kt:171:9 None of the following functions can be called with the arguments supplied: 
+public fun LinearProgressIndicator(modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+public fun LinearProgressIndicator(progress: Float, modifier: Modifier = ..., color: Color = ..., trackColor: Color = ..., strokeCap: StrokeCap = ...): Unit defined in androidx.compose.material3
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/SharedElementTransitions.kt:12:8 Unresolved reference: coil
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/SharedElementTransitions.kt:116:9 Unresolved reference: AsyncImage
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/animation/SharedElementTransitions.kt:145:9 Unresolved reference: AsyncImage
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/brush/BrushSelectorPanel.kt:112:49 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/brush/components/BrushPreviewGenerator.kt:60:13 Cannot find a parameter with this name: timestamp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/brush/components/BrushPreviewGenerator.kt:95:13 Cannot find a parameter with this name: timestamp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/canvas/CanvasScreen.kt:97:17 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public fun Modifier.detectFourFingerTap(onTap: () -> Unit): Modifier defined in com.artboard.ui.canvas in file GestureUtils.kt
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/canvas/CanvasScreen.kt:106:17 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public fun Modifier.detectEdgeTap(edgeMargin: Dp = ..., onEdgeTap: (Edge) -> Unit): Modifier defined in com.artboard.ui.canvas in file GestureUtils.kt
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/color/ColorPickerViewModel.kt:32:36 Unresolved reference: viewModelScope
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/color/components/RecentColorsBar.kt:90:48 Unresolved reference: launch
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/color/components/RecentColorsBar.kt:91:40 Suspend function 'delay' should be called only from a coroutine or another suspend function
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryScreen.kt:124:37 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryScreen.kt:142:37 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryViewModel.kt:22:78 No value passed for parameter 'context'
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/GalleryViewModel.kt:171:41 Unresolved reference: copy
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/components/ProjectCard.kt:36:8 Unresolved reference: coil
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gallery/components/ProjectCard.kt:98:17 Unresolved reference: AsyncImage
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gestures/GestureHandler.kt:266:47 Cannot access 'screenWidth': it is private in 'EdgeSwipeDetector'
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/gestures/GestureHandler.kt:267:47 Cannot access 'screenHeight': it is private in 'EdgeSwipeDetector'
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/layers/LayerPanel.kt:135:45 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/layers/components/LayerCard.kt:98:18 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/layers/components/LayerCardWithHaptics.kt:131:18 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:42:22 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:46:20 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:46:31 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:47:34 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:47:45 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:51:9 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:52:21 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:70:13 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:70:24 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:98:35 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/onboarding/OnboardingFlow.kt:98:46 This foundation API is experimental and is likely to change or be removed in the future.
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/SelectionMode.kt:206:34 Type mismatch: inferred type is com.artboard.data.model.Rect but android.graphics.Rect was expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:21:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:70:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:127:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:168:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:187:30 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public infix fun Byte.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Byte.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Char.until(to: Char): CharRange defined in kotlin.ranges
+public infix fun Int.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Int.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Long.until(to: Byte): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Int): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Short): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun UByte.until(to: UByte): UIntRange defined in kotlin.ranges
+public infix fun UInt.until(to: UInt): UIntRange defined in kotlin.ranges
+public infix fun ULong.until(to: ULong): ULongRange defined in kotlin.ranges
+public infix fun UShort.until(to: UShort): UIntRange defined in kotlin.ranges
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:188:35 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public infix fun Byte.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Byte.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Byte.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Char.until(to: Char): CharRange defined in kotlin.ranges
+public infix fun Int.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Int.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Int.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun Long.until(to: Byte): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Int): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Long.until(to: Short): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Byte): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Int): IntRange defined in kotlin.ranges
+public infix fun Short.until(to: Long): LongRange defined in kotlin.ranges
+public infix fun Short.until(to: Short): IntRange defined in kotlin.ranges
+public infix fun UByte.until(to: UByte): UIntRange defined in kotlin.ranges
+public infix fun UInt.until(to: UInt): UIntRange defined in kotlin.ranges
+public infix fun ULong.until(to: ULong): ULongRange defined in kotlin.ranges
+public infix fun UShort.until(to: UShort): UIntRange defined in kotlin.ranges
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:231:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:256:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:291:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/commands/SelectionCommands.kt:354:5 Inheritor of sealed class or interface declared in package com.artboard.ui.selection.commands but it must be in package com.artboard.domain.history where base class is declared
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:55:20 Function invocation 'isEmpty()' expected
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:204:14 Unresolved reference: drawBehind
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:205:17 Unresolved reference: drawRoundRect
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:216:31 Unresolved reference: sp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:236:14 Unresolved reference: drawBehind
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:237:17 Unresolved reference: drawRoundRect
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionOverlay.kt:248:31 Unresolved reference: sp
+e: file:///Users/ken/workspace/artboard/artboard/app/src/main/kotlin/com/artboard/ui/selection/components/SelectionToolbar.kt:204:39 Smart cast to 'SelectionMask' is impossible, because 'selectionMask' is a property that has open or custom getter
+
+> Task :app:compileDebugKotlin FAILED
+
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':app:compileReleaseKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileReleaseKotlin'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:149)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:147)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:283)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:321)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:304)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:309)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:256)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:77)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:38)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:94)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:49)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:86)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilation error. See log for more details
+	at org.jetbrains.kotlin.gradle.tasks.TasksUtilsKt.throwExceptionIfCompilationFailed(tasksUtils.kt:22)
+	at org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run(GradleKotlinCompilerWork.kt:144)
+	at org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute(GradleCompilerRunnerWithWorkers.kt:76)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:170)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:187)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:120)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:162)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:249)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:109)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:114)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:157)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:126)
+	... 2 more
+
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:compileDebugKotlin'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:149)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:282)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:147)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:283)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:321)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:304)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:309)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:256)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.run(DefaultBuildOperationExecutor.java:68)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:233)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:216)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:199)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:166)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:41)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:74)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:50)
+	at org.gradle.internal.execution.steps.CreateOutputsStep.execute(CreateOutputsStep.java:28)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.executeDelegateBroadcastingChanges(CaptureStateAfterExecutionStep.java:100)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:72)
+	at org.gradle.internal.execution.steps.CaptureStateAfterExecutionStep.execute(CaptureStateAfterExecutionStep.java:50)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:179)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:70)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:59)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:68)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:25)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:36)
+	at org.gradle.internal.execution.steps.RecordOutputsStep.execute(RecordOutputsStep.java:22)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:91)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:55)
+	at java.base/java.util.Optional.orElseGet(Unknown Source)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:55)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:77)
+	at org.gradle.internal.execution.steps.ResolveCachingStateStep.execute(ResolveCachingStateStep.java:38)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:94)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:49)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:71)
+	at org.gradle.internal.execution.steps.CaptureStateBeforeExecutionStep.execute(CaptureStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.executeWithNonEmptySources(SkipEmptyWorkStep.java:177)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:86)
+	at org.gradle.internal.execution.steps.SkipEmptyWorkStep.execute(SkipEmptyWorkStep.java:53)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:32)
+	at org.gradle.internal.execution.steps.RemoveUntrackedExecutionStateStep.execute(RemoveUntrackedExecutionStateStep.java:21)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.CleanupStaleOutputsStep.execute(CleanupStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.lambda$execute$0(AssignWorkspaceStep.java:32)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:293)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignWorkspaceStep.execute(AssignWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:37)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:27)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:146)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:337)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:324)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:317)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:463)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:380)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.jetbrains.kotlin.gradle.tasks.CompilationErrorException: Compilation error. See log for more details
+	at org.jetbrains.kotlin.gradle.tasks.TasksUtilsKt.throwExceptionIfCompilationFailed(tasksUtils.kt:22)
+	at org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run(GradleKotlinCompilerWork.kt:144)
+	at org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute(GradleCompilerRunnerWithWorkers.kt:76)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:199)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:157)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.operations.DefaultBuildOperationExecutor.call(DefaultBuildOperationExecutor.java:73)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:170)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:187)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:120)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:162)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:249)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:109)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:114)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:157)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:126)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	... 5 more
+
+==============================================================================
+
+BUILD FAILED in 26s
+57 actionable tasks: 37 executed, 20 up-to-date

@@ -10,6 +10,7 @@ import com.artboard.data.model.Layer
 
 /**
  * Manages layer operations and compositing
+ * Supports all 18 blend modes from Procreate
  */
 class LayerManager(
     private val canvasWidth: Int,
@@ -35,8 +36,8 @@ class LayerManager(
         // Clear to transparent
         canvas.drawColor(0, PorterDuff.Mode.CLEAR)
         
-        // Composite each visible layer
-        layers.forEach { layer ->
+        // Composite each visible layer (bottom to top)
+        layers.sortedBy { it.position }.forEach { layer ->
             if (layer.isVisible) {
                 compositeLayer(canvas, layer)
             }
@@ -51,13 +52,26 @@ class LayerManager(
     private fun compositeLayer(canvas: Canvas, layer: Layer) {
         compositePaint.alpha = (layer.opacity * 255).toInt()
         
-        // Set blend mode
+        // Set blend mode (map to Android PorterDuff modes)
         compositePaint.xfermode = when (layer.blendMode) {
             BlendMode.NORMAL -> null
             BlendMode.MULTIPLY -> PorterDuffXfermode(PorterDuff.Mode.MULTIPLY)
             BlendMode.SCREEN -> PorterDuffXfermode(PorterDuff.Mode.SCREEN)
             BlendMode.OVERLAY -> PorterDuffXfermode(PorterDuff.Mode.OVERLAY)
             BlendMode.ADD -> PorterDuffXfermode(PorterDuff.Mode.ADD)
+            BlendMode.DARKEN -> PorterDuffXfermode(PorterDuff.Mode.DARKEN)
+            BlendMode.LIGHTEN -> PorterDuffXfermode(PorterDuff.Mode.LIGHTEN)
+            BlendMode.COLOR_DODGE -> PorterDuffXfermode(PorterDuff.Mode.LIGHTEN) // Approximation
+            BlendMode.COLOR_BURN -> PorterDuffXfermode(PorterDuff.Mode.DARKEN) // Approximation
+            BlendMode.SOFT_LIGHT -> PorterDuffXfermode(PorterDuff.Mode.OVERLAY) // Approximation
+            BlendMode.HARD_LIGHT -> PorterDuffXfermode(PorterDuff.Mode.OVERLAY) // Approximation
+            BlendMode.DIFFERENCE -> PorterDuffXfermode(PorterDuff.Mode.XOR) // DIFFERENCE not available, use XOR
+            BlendMode.EXCLUSION -> PorterDuffXfermode(PorterDuff.Mode.XOR)
+            BlendMode.HUE -> null // TODO: Custom shader implementation
+            BlendMode.SATURATION -> null // TODO: Custom shader implementation
+            BlendMode.COLOR -> null // TODO: Custom shader implementation
+            BlendMode.LUMINOSITY -> null // TODO: Custom shader implementation
+            BlendMode.XOR -> PorterDuffXfermode(PorterDuff.Mode.XOR)
         }
         
         canvas.drawBitmap(layer.bitmap, 0f, 0f, compositePaint)
@@ -66,8 +80,8 @@ class LayerManager(
     /**
      * Create a new blank layer
      */
-    fun createLayer(name: String): Layer {
-        return Layer.create(canvasWidth, canvasHeight, name)
+    fun createLayer(name: String, position: Int = 0): Layer {
+        return Layer.create(canvasWidth, canvasHeight, name, position)
     }
     
     /**
@@ -95,7 +109,8 @@ class LayerManager(
             bitmap = mergedBitmap,
             opacity = 1f,
             blendMode = BlendMode.NORMAL,
-            isVisible = true
+            isVisible = true,
+            position = bottom.position
         )
     }
     
@@ -110,7 +125,8 @@ class LayerManager(
             bitmap = flattenedBitmap,
             opacity = 1f,
             blendMode = BlendMode.NORMAL,
-            isVisible = true
+            isVisible = true,
+            position = 0
         )
     }
     
