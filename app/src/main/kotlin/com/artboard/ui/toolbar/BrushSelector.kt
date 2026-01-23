@@ -109,6 +109,7 @@ fun BrushItem(
                     BrushType.AIRBRUSH -> Icons.Default.Face
                     BrushType.MARKER -> Icons.Default.Star
                     BrushType.ERASER -> Icons.Default.Delete
+                    BrushType.CALLIGRAPHY -> Icons.Default.Brush
                 },
                 contentDescription = brush.type.name,
                 tint = MaterialTheme.colorScheme.onSurface
@@ -137,5 +138,7 @@ val brushPresets = listOf(
     Brush.pen(),
     Brush.marker(),
     Brush.airbrush(),
-    Brush.eraser()
+    Brush.eraser(),
+    Brush.calligraphy(),
+    Brush.markerChisel()
 )
