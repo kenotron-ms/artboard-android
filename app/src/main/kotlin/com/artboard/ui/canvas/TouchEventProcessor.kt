@@ -4,7 +4,8 @@ import android.view.MotionEvent
 import com.artboard.data.model.Point
 
 /**
- * Processes touch events and extracts drawing points with pressure
+ * Processes touch events and extracts drawing points with full stylus data
+ * including pressure, tilt, and orientation
  */
 class TouchEventProcessor {
     
@@ -20,7 +21,10 @@ class TouchEventProcessor {
             val point = Point(
                 x = event.getHistoricalX(i),
                 y = event.getHistoricalY(i),
-                pressure = event.getHistoricalPressure(i),
+                pressure = normalizePressure(event.getHistoricalPressure(i)),
+                tiltX = getHistoricalTiltX(event, i),
+                tiltY = getHistoricalTiltY(event, i),
+                orientation = getHistoricalOrientation(event, i),
                 timestamp = event.getHistoricalEventTime(i)
             )
             points.add(point)
@@ -30,7 +34,10 @@ class TouchEventProcessor {
         val point = Point(
             x = event.x,
             y = event.y,
-            pressure = event.pressure,
+            pressure = normalizePressure(event.pressure),
+            tiltX = getTiltX(event),
+            tiltY = getTiltY(event),
+            orientation = getOrientation(event),
             timestamp = event.eventTime
         )
         points.add(point)
@@ -46,17 +53,54 @@ class TouchEventProcessor {
     }
     
     /**
-     * Get the tilt angle if available (for advanced stylus)
+     * Get tilt X angle in degrees (-90 to +90)
      */
-    fun getTilt(event: MotionEvent): Float {
-        return event.getAxisValue(MotionEvent.AXIS_TILT)
+    fun getTiltX(event: MotionEvent): Float {
+        val tiltRad = event.getAxisValue(MotionEvent.AXIS_TILT)
+        return (tiltRad * 90f).coerceIn(-90f, 90f)
     }
     
     /**
-     * Get the orientation/rotation of the stylus
+     * Get tilt Y angle in degrees (-90 to +90)
+     */
+    fun getTiltY(event: MotionEvent): Float {
+        // Some devices provide AXIS_TILT_Y, others compute from AXIS_TILT
+        val tiltRad = event.getAxisValue(MotionEvent.AXIS_TILT)
+        return (tiltRad * 90f).coerceIn(-90f, 90f)
+    }
+    
+    /**
+     * Get historical tilt X angle
+     */
+    private fun getHistoricalTiltX(event: MotionEvent, index: Int): Float {
+        val tiltRad = event.getHistoricalAxisValue(MotionEvent.AXIS_TILT, index)
+        return (tiltRad * 90f).coerceIn(-90f, 90f)
+    }
+    
+    /**
+     * Get historical tilt Y angle
+     */
+    private fun getHistoricalTiltY(event: MotionEvent, index: Int): Float {
+        val tiltRad = event.getHistoricalAxisValue(MotionEvent.AXIS_TILT, index)
+        return (tiltRad * 90f).coerceIn(-90f, 90f)
+    }
+    
+    /**
+     * Get stylus orientation/rotation in degrees (0-360)
      */
     fun getOrientation(event: MotionEvent): Float {
-        return event.orientation
+        val orientationRad = event.orientation
+        val orientationDeg = Math.toDegrees(orientationRad.toDouble()).toFloat()
+        return (orientationDeg + 360f) % 360f
+    }
+    
+    /**
+     * Get historical orientation
+     */
+    private fun getHistoricalOrientation(event: MotionEvent, index: Int): Float {
+        val orientationRad = event.getHistoricalOrientation(index)
+        val orientationDeg = Math.toDegrees(orientationRad.toDouble()).toFloat()
+        return (orientationDeg + 360f) % 360f
     }
     
     /**

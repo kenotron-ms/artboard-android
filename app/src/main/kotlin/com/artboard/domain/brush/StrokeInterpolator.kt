@@ -70,8 +70,11 @@ class StrokeInterpolator {
             val x = 0.5f * (p0.x * q0 + p1.x * q1 + p2.x * q2 + p3.x * q3)
             val y = 0.5f * (p0.y * q0 + p1.y * q1 + p2.y * q2 + p3.y * q3)
             val pressure = 0.5f * (p0.pressure * q0 + p1.pressure * q1 + p2.pressure * q2 + p3.pressure * q3)
+            val tiltX = 0.5f * (p0.tiltX * q0 + p1.tiltX * q1 + p2.tiltX * q2 + p3.tiltX * q3)
+            val tiltY = 0.5f * (p0.tiltY * q0 + p1.tiltY * q1 + p2.tiltY * q2 + p3.tiltY * q3)
+            val orientation = 0.5f * (p0.orientation * q0 + p1.orientation * q1 + p2.orientation * q2 + p3.orientation * q3)
             
-            result.add(Point(x, y, pressure.coerceIn(0f, 1f)))
+            result.add(Point(x, y, pressure.coerceIn(0f, 1f), tiltX, tiltY, orientation))
         }
         
         return result
@@ -94,8 +97,11 @@ class StrokeInterpolator {
             val x = p1.x + (p2.x - p1.x) * t
             val y = p1.y + (p2.y - p1.y) * t
             val pressure = p1.pressure + (p2.pressure - p1.pressure) * t
+            val tiltX = p1.tiltX + (p2.tiltX - p1.tiltX) * t
+            val tiltY = p1.tiltY + (p2.tiltY - p1.tiltY) * t
+            val orientation = p1.orientation + (p2.orientation - p1.orientation) * t
             
-            result.add(Point(x, y, pressure))
+            result.add(Point(x, y, pressure, tiltX, tiltY, orientation))
         }
         
         return result

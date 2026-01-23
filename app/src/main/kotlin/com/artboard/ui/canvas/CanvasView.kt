@@ -175,14 +175,17 @@ class CanvasView @JvmOverloads constructor(
             canvas.drawColor(0, PorterDuff.Mode.CLEAR)
         }
         
-        // Start new stroke
+        // Start new stroke with full tilt data
         val points = touchProcessor.extractPoints(event)
         if (points.isNotEmpty()) {
             val point = points.first()
             drawingEngine.beginStroke(
                 point.x,
                 point.y,
-                touchProcessor.normalizePressure(point.pressure),
+                point.pressure,
+                point.tiltX,
+                point.tiltY,
+                point.orientation,
                 currentBrush,
                 currentColor,
                 activeLayer.id
@@ -200,15 +203,11 @@ class CanvasView @JvmOverloads constructor(
         val activeLayer = getActiveLayer() ?: return
         if (activeLayer.isLocked) return
         
-        // Extract all points (including historical for smoothness)
+        // Extract all points with full tilt data (including historical for smoothness)
         val points = touchProcessor.extractPoints(event)
         
         points.forEach { point ->
-            drawingEngine.continueStroke(
-                point.x,
-                point.y,
-                touchProcessor.normalizePressure(point.pressure)
-            )
+            drawingEngine.continueStroke(point)
         }
         
         // Render incrementally to drawing bitmap
@@ -226,14 +225,10 @@ class CanvasView @JvmOverloads constructor(
         val activeLayer = getActiveLayer() ?: return
         if (activeLayer.isLocked) return
         
-        // Process final points
+        // Process final points with full tilt data
         val points = touchProcessor.extractPoints(event)
         points.forEach { point ->
-            drawingEngine.continueStroke(
-                point.x,
-                point.y,
-                touchProcessor.normalizePressure(point.pressure)
-            )
+            drawingEngine.continueStroke(point)
         }
         
         // Finalize stroke

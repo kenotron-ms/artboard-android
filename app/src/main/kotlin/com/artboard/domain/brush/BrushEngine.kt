@@ -46,6 +46,7 @@ class BrushEngine {
     
     /**
      * Render a single brush stamp at the given point
+     * Supports tilt-based size and rotation dynamics
      */
     private fun renderStamp(
         canvas: Canvas,
@@ -53,8 +54,9 @@ class BrushEngine {
         brush: Brush,
         color: Int
     ) {
-        val size = brush.getEffectiveSize(point.pressure)
+        val size = calculateEffectiveSize(point, brush)
         val opacity = brush.getEffectiveOpacity(point.pressure)
+        val rotation = calculateStampRotation(point, brush)
         
         // Set up paint based on brush type
         when (brush.type) {
@@ -89,9 +91,73 @@ class BrushEngine {
         val flowAlpha = (opacity * brush.flow * 255).toInt()
         paint.alpha = min(paint.alpha, flowAlpha)
         
-        // Draw the stamp
+        // Draw the stamp with rotation and tilt
         val radius = size / 2f
-        canvas.drawCircle(point.x, point.y, radius, paint)
+        
+        if (rotation != 0f || (brush.tiltSizeEnabled && point.hasTilt())) {
+            canvas.save()
+            
+            // Apply rotation if tilt angle is enabled
+            if (rotation != 0f) {
+                canvas.rotate(rotation, point.x, point.y)
+            }
+            
+            // Apply scaling for tilt (flatten vertically)
+            if (brush.tiltSizeEnabled && point.hasTilt()) {
+                val tiltMag = point.tiltMagnitude() / 90f
+                val scaleY = 1f - (tiltMag * 0.7f) // Flatten up to 70%
+                canvas.scale(1f, scaleY, point.x, point.y)
+            }
+            
+            canvas.drawCircle(point.x, point.y, radius, paint)
+            canvas.restore()
+        } else {
+            // No tilt or rotation - simple draw
+            canvas.drawCircle(point.x, point.y, radius, paint)
+        }
+        
+        // Reset shader for next stamp
+        paint.shader = null
+    }
+    
+    /**
+     * Calculate effective brush size with pressure and tilt dynamics
+     */
+    private fun calculateEffectiveSize(point: Point, brush: Brush): Float {
+        var size = brush.size
+        
+        // Pressure dynamics
+        if (brush.pressureSizeEnabled) {
+            val factor = brush.minPressureSize + (1f - brush.minPressureSize) * point.pressure
+            size *= factor
+        }
+        
+        // Tilt dynamics (brush widens when tilted, like real pencil)
+        if (brush.tiltSizeEnabled && point.hasTilt()) {
+            val tiltMag = point.tiltMagnitude() / 90f // Normalize to 0-1
+            val factor = lerp(brush.tiltSizeMin, brush.tiltSizeMax, tiltMag)
+            size *= factor
+        }
+        
+        return size.coerceIn(0.5f, 1000f)
+    }
+    
+    /**
+     * Calculate stamp rotation based on tilt direction
+     */
+    private fun calculateStampRotation(point: Point, brush: Brush): Float {
+        if (!brush.tiltAngleEnabled || !point.hasTilt()) {
+            return 0f
+        }
+        
+        return point.tiltDirection()
+    }
+    
+    /**
+     * Linear interpolation helper
+     */
+    private fun lerp(start: Float, end: Float, t: Float): Float {
+        return start + (end - start) * t
     }
     
     /**

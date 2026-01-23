@@ -20,12 +20,15 @@ class DrawingEngine(
     private var lastRenderedPointCount = 0
     
     /**
-     * Begin a new stroke
+     * Begin a new stroke with full tilt support
      */
     fun beginStroke(
         x: Float,
         y: Float,
         pressure: Float,
+        tiltX: Float = 0f,
+        tiltY: Float = 0f,
+        orientation: Float = 0f,
         brush: Brush,
         color: Int,
         layerId: String
@@ -36,15 +39,29 @@ class DrawingEngine(
             color = color,
             layerId = layerId
         )
-        currentStroke?.addPoint(Point(x, y, pressure))
+        currentStroke?.addPoint(Point(x, y, pressure, tiltX, tiltY, orientation))
         lastRenderedPointCount = 0
     }
     
     /**
-     * Add a point to the current stroke
+     * Add a point to the current stroke with full tilt data
      */
-    fun continueStroke(x: Float, y: Float, pressure: Float) {
-        currentStroke?.addPoint(Point(x, y, pressure))
+    fun continueStroke(
+        x: Float,
+        y: Float,
+        pressure: Float,
+        tiltX: Float = 0f,
+        tiltY: Float = 0f,
+        orientation: Float = 0f
+    ) {
+        currentStroke?.addPoint(Point(x, y, pressure, tiltX, tiltY, orientation))
+    }
+    
+    /**
+     * Add a point to the current stroke (convenience for extractPoints)
+     */
+    fun continueStroke(point: Point) {
+        currentStroke?.addPoint(point)
     }
     
     /**

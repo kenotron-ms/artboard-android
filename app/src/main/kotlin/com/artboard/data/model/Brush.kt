@@ -2,16 +2,18 @@ package com.artboard.data.model
 
 import kotlinx.serialization.Serializable
 
+@Serializable
 enum class BrushType {
     PENCIL,
     PEN,
     AIRBRUSH,
     ERASER,
-    MARKER
+    MARKER,
+    CALLIGRAPHY  // Added for tilt-responsive brushes
 }
 
 /**
- * Brush configuration for stroke rendering
+ * Brush configuration for stroke rendering with full tilt support
  */
 @Serializable
 data class Brush(
@@ -20,11 +22,20 @@ data class Brush(
     val hardness: Float = 0.8f,         // 0.0-1.0 (edge softness)
     val flow: Float = 1f,               // 0.0-1.0 (paint buildup)
     val spacing: Float = 0.1f,          // 0.01-1.0 (stamp spacing as % of size)
+    
+    // Pressure dynamics
     val pressureSizeEnabled: Boolean = true,
     val pressureOpacityEnabled: Boolean = true,
-    val type: BrushType = BrushType.PEN,
     val minPressureSize: Float = 0.2f,  // Min size multiplier at low pressure
-    val minPressureOpacity: Float = 0.3f // Min opacity multiplier at low pressure
+    val minPressureOpacity: Float = 0.3f, // Min opacity multiplier at low pressure
+    
+    // Tilt dynamics
+    val tiltSizeEnabled: Boolean = false,
+    val tiltSizeMin: Float = 1.0f,      // Size multiplier when perpendicular
+    val tiltSizeMax: Float = 3.0f,      // Size multiplier when fully tilted
+    val tiltAngleEnabled: Boolean = false, // Rotate stamp to match tilt direction
+    
+    val type: BrushType = BrushType.PEN
 ) {
     /**
      * Calculate actual brush size for given pressure
@@ -124,6 +135,44 @@ data class Brush(
             type = BrushType.ERASER,
             pressureSizeEnabled = true,
             pressureOpacityEnabled = false
+        )
+        
+        /**
+         * Create a calligraphy brush preset with tilt support
+         * Flattens and rotates with stylus tilt like a real calligraphy pen
+         */
+        fun calligraphy() = Brush(
+            size = 20f,
+            opacity = 1f,
+            hardness = 0.9f,
+            flow = 1f,
+            spacing = 0.15f,
+            type = BrushType.CALLIGRAPHY,
+            pressureSizeEnabled = true,
+            pressureOpacityEnabled = false,
+            minPressureSize = 0.5f,
+            tiltSizeEnabled = true,
+            tiltSizeMin = 1.0f,
+            tiltSizeMax = 3.0f,
+            tiltAngleEnabled = true
+        )
+        
+        /**
+         * Update marker preset to use tilt for chisel effect
+         */
+        fun markerChisel() = Brush(
+            size = 15f,
+            opacity = 0.7f,
+            hardness = 0.8f,
+            flow = 0.8f,
+            spacing = 0.2f,
+            type = BrushType.MARKER,
+            pressureSizeEnabled = false,
+            pressureOpacityEnabled = false,
+            tiltSizeEnabled = true,
+            tiltSizeMin = 0.5f,
+            tiltSizeMax = 2.5f,
+            tiltAngleEnabled = true
         )
     }
 }
