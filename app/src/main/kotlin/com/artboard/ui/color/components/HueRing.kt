@@ -1,5 +1,7 @@
 package com.artboard.ui.color.components
 
+import android.graphics.SweepGradient
+import android.view.HapticFeedbackConstants
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -7,19 +9,21 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
-import android.view.HapticFeedbackConstants
 import kotlin.math.*
 
 /**
  * Circular hue ring selector with smooth 360° spectrum.
  * Displays full HSB spectrum as a ring with white indicator.
+ * 
+ * Performance optimized:
+ * - Uses SweepGradient shader instead of 360 separate arcs
+ * - Input smoothing to reduce jitter
  * 
  * @param selectedHue Currently selected hue (0-360 degrees)
  * @param onHueSelected Callback when hue is selected
@@ -34,6 +38,37 @@ fun HueRing(
     val view = LocalView.current
     var isDragging by remember { mutableStateOf(false) }
     
+    // Smoothing: track last emitted hue to prevent micro-jitter
+    var lastEmittedHue by remember { mutableFloatStateOf(selectedHue) }
+    val hueThreshold = 0.5f // Minimum change to emit
+    
+    // Create the hue colors for the sweep gradient (cached)
+    val hueColors = remember {
+        intArrayOf(
+            android.graphics.Color.HSVToColor(floatArrayOf(0f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(60f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(120f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(180f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(240f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(300f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(360f, 1f, 1f))
+        )
+    }
+    
+    val huePositions = remember {
+        floatArrayOf(0f, 0.166f, 0.333f, 0.5f, 0.666f, 0.833f, 1f)
+    }
+    
+    fun emitHueIfChanged(newHue: Float) {
+        if (abs(newHue - lastEmittedHue) >= hueThreshold || 
+            // Handle wraparound at 0/360
+            (lastEmittedHue > 350 && newHue < 10) ||
+            (lastEmittedHue < 10 && newHue > 350)) {
+            lastEmittedHue = newHue
+            onHueSelected(newHue)
+        }
+    }
+    
     Canvas(
         modifier = modifier
             .size(300.dp)
@@ -46,6 +81,7 @@ fun HueRing(
                         // Calculate hue from touch position
                         val center = Offset(size.width / 2f, size.height / 2f)
                         val hue = calculateHueFromPosition(offset, center)
+                        lastEmittedHue = hue
                         onHueSelected(hue)
                     },
                     onDragEnd = {
@@ -54,7 +90,7 @@ fun HueRing(
                     onDrag = { change, _ ->
                         val center = Offset(size.width / 2f, size.height / 2f)
                         val hue = calculateHueFromPosition(change.position, center)
-                        onHueSelected(hue)
+                        emitHueIfChanged(hue)
                     }
                 )
             }
@@ -64,6 +100,7 @@ fun HueRing(
                     val hue = calculateHueFromPosition(offset, center)
                     
                     view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                    lastEmittedHue = hue
                     onHueSelected(hue)
                 }
             }
@@ -72,32 +109,35 @@ fun HueRing(
         val outerRadius = size.minDimension / 2
         val innerRadius = outerRadius * 0.8f
         val ringWidth = outerRadius - innerRadius
+        val middleRadius = (outerRadius + innerRadius) / 2
         
-        // Draw hue spectrum (360 degrees with smooth gradient)
-        // Using 360 individual arcs to prevent banding
-        for (angleDeg in 0..359) {
-            val hue = angleDeg.toFloat()
-            val color = Color.hsv(hue, 1f, 1f)
-            
-            drawArc(
-                color = color,
-                startAngle = angleDeg.toFloat() - 90f, // Offset by 90° to start at top
-                sweepAngle = 1f,
-                useCenter = false,
-                style = Stroke(width = ringWidth, cap = StrokeCap.Butt),
-                topLeft = Offset(
-                    center.x - outerRadius,
-                    center.y - outerRadius
-                ),
-                size = Size(outerRadius * 2, outerRadius * 2)
-            )
+        // Draw hue ring using SweepGradient (MUCH faster than 360 arcs)
+        val sweepShader = SweepGradient(
+            center.x, center.y,
+            hueColors,
+            huePositions
+        )
+        
+        // Rotate shader so red (0°) is at top instead of right
+        val shaderMatrix = android.graphics.Matrix()
+        shaderMatrix.setRotate(-90f, center.x, center.y)
+        sweepShader.setLocalMatrix(shaderMatrix)
+        
+        val ringPaint = android.graphics.Paint().apply {
+            shader = sweepShader
+            style = android.graphics.Paint.Style.STROKE
+            strokeWidth = ringWidth
+            isAntiAlias = true
         }
         
+        drawContext.canvas.nativeCanvas.drawCircle(
+            center.x, center.y, middleRadius, ringPaint
+        )
+        
         // Draw selection indicator
-        val selectedAngleRad = Math.toRadians((selectedHue - 90f).toDouble()) // Offset by 90° to match ring
-        val indicatorRadius = (outerRadius + innerRadius) / 2
-        val indicatorX = center.x + cos(selectedAngleRad).toFloat() * indicatorRadius
-        val indicatorY = center.y + sin(selectedAngleRad).toFloat() * indicatorRadius
+        val selectedAngleRad = Math.toRadians((selectedHue - 90.0)) // Offset by 90° to match ring
+        val indicatorX = center.x + cos(selectedAngleRad).toFloat() * middleRadius
+        val indicatorY = center.y + sin(selectedAngleRad).toFloat() * middleRadius
         
         val indicatorCenter = Offset(indicatorX, indicatorY)
         
@@ -117,7 +157,7 @@ fun HueRing(
             style = Stroke(width = 2.dp.toPx())
         )
         
-        // Optional: Add shadow effect for depth
+        // Add shadow effect for depth when dragging
         if (isDragging) {
             drawCircle(
                 color = Color.White.copy(alpha = 0.3f),

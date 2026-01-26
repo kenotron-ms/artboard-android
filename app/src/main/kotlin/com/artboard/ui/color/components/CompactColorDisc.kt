@@ -1,5 +1,6 @@
 package com.artboard.ui.color.components
 
+import android.graphics.SweepGradient
 import android.view.HapticFeedbackConstants
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -11,11 +12,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
@@ -31,23 +32,10 @@ import kotlin.math.*
  * - Current color indicator on ring
  * - Live update as user drags
  * 
- * Layout:
- * ```
- *     ┌─────────────────┐
- *     │   ┌───────┐     │
- *  H  │   │ Sat/  │     │  H
- *  U  │   │ Bri   │     │  U
- *  E  │   │       │     │  E
- *     │   └───────┘     │
- *     └─────────────────┘
- * ```
- * 
- * @param hue Current hue (0-360 degrees)
- * @param saturation Current saturation (0-1)
- * @param brightness Current brightness (0-1)
- * @param onHueChange Callback when hue changes (live during drag)
- * @param onSatBriChange Callback when saturation/brightness changes (live during drag)
- * @param modifier Modifier for the component
+ * Performance optimizations:
+ * - Uses SweepGradient shader instead of 360 separate arcs
+ * - Input smoothing to reduce jitter
+ * - Stable keys to prevent unnecessary recomposition
  */
 @Composable
 fun CompactColorDisc(
@@ -81,7 +69,7 @@ fun CompactColorDisc(
 }
 
 /**
- * Compact hue ring (20dp thick, 200dp diameter)
+ * Compact hue ring using efficient SweepGradient shader
  */
 @Composable
 private fun CompactHueRing(
@@ -92,6 +80,37 @@ private fun CompactHueRing(
     val view = LocalView.current
     var isDragging by remember { mutableStateOf(false) }
     
+    // Smoothing: track last emitted hue to prevent micro-jitter
+    var lastEmittedHue by remember { mutableFloatStateOf(selectedHue) }
+    val hueThreshold = 0.5f // Minimum change to emit
+    
+    // Create the hue colors for the sweep gradient (cached)
+    val hueColors = remember {
+        intArrayOf(
+            android.graphics.Color.HSVToColor(floatArrayOf(0f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(60f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(120f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(180f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(240f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(300f, 1f, 1f)),
+            android.graphics.Color.HSVToColor(floatArrayOf(360f, 1f, 1f))
+        )
+    }
+    
+    val huePositions = remember {
+        floatArrayOf(0f, 0.166f, 0.333f, 0.5f, 0.666f, 0.833f, 1f)
+    }
+    
+    fun emitHueIfChanged(newHue: Float) {
+        if (abs(newHue - lastEmittedHue) >= hueThreshold || 
+            // Handle wraparound at 0/360
+            (lastEmittedHue > 350 && newHue < 10) ||
+            (lastEmittedHue < 10 && newHue > 350)) {
+            lastEmittedHue = newHue
+            onHueSelected(newHue)
+        }
+    }
+    
     Canvas(
         modifier = modifier
             .pointerInput(Unit) {
@@ -101,9 +120,9 @@ private fun CompactHueRing(
                         view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
                         
                         val center = Offset(size.width / 2f, size.height / 2f)
-                        // Only respond to touches in the ring area
                         if (isInHueRing(offset, center, size.width.toFloat())) {
                             val hue = calculateHueFromPosition(offset, center)
+                            lastEmittedHue = hue
                             onHueSelected(hue)
                         }
                     },
@@ -113,7 +132,7 @@ private fun CompactHueRing(
                     onDrag = { change, _ ->
                         val center = Offset(size.width / 2f, size.height / 2f)
                         val hue = calculateHueFromPosition(change.position, center)
-                        onHueSelected(hue)
+                        emitHueIfChanged(hue)
                     }
                 )
             }
@@ -123,6 +142,7 @@ private fun CompactHueRing(
                     if (isInHueRing(offset, center, size.width.toFloat())) {
                         view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
                         val hue = calculateHueFromPosition(offset, center)
+                        lastEmittedHue = hue
                         onHueSelected(hue)
                     }
                 }
@@ -130,33 +150,34 @@ private fun CompactHueRing(
     ) {
         val center = Offset(size.width / 2, size.height / 2)
         val outerRadius = size.minDimension / 2
-        val ringWidth = 20.dp.toPx() // 20dp thick ring
+        val ringWidth = 20.dp.toPx()
         val middleRadius = outerRadius - ringWidth / 2
         
-        // Draw hue spectrum (360 degrees with smooth gradient)
-        for (angleDeg in 0..359) {
-            val hue = angleDeg.toFloat()
-            val color = Color.hsv(hue, 1f, 1f)
-            
-            drawArc(
-                color = color,
-                startAngle = angleDeg.toFloat() - 90f, // Start at top
-                sweepAngle = 1.5f, // Slight overlap to prevent gaps
-                useCenter = false,
-                style = Stroke(width = ringWidth, cap = StrokeCap.Butt),
-                topLeft = Offset(
-                    center.x - middleRadius - ringWidth / 2,
-                    center.y - middleRadius - ringWidth / 2
-                ),
-                size = Size(
-                    (middleRadius + ringWidth / 2) * 2,
-                    (middleRadius + ringWidth / 2) * 2
-                )
-            )
+        // Draw hue ring using SweepGradient (MUCH faster than 360 arcs)
+        val sweepShader = SweepGradient(
+            center.x, center.y,
+            hueColors,
+            huePositions
+        )
+        
+        // Rotate shader so red (0°) is at top instead of right
+        val shaderMatrix = android.graphics.Matrix()
+        shaderMatrix.setRotate(-90f, center.x, center.y)
+        sweepShader.setLocalMatrix(shaderMatrix)
+        
+        val ringPaint = android.graphics.Paint().apply {
+            shader = sweepShader
+            style = android.graphics.Paint.Style.STROKE
+            strokeWidth = ringWidth
+            isAntiAlias = true
         }
         
+        drawContext.canvas.nativeCanvas.drawCircle(
+            center.x, center.y, middleRadius, ringPaint
+        )
+        
         // Draw selection indicator on ring
-        val selectedAngleRad = Math.toRadians((selectedHue - 90f).toDouble())
+        val selectedAngleRad = Math.toRadians((selectedHue - 90.0))
         val indicatorX = center.x + cos(selectedAngleRad).toFloat() * middleRadius
         val indicatorY = center.y + sin(selectedAngleRad).toFloat() * middleRadius
         val indicatorCenter = Offset(indicatorX, indicatorY)
@@ -202,6 +223,20 @@ private fun CompactSatBriSquare(
     val view = LocalView.current
     var isDragging by remember { mutableStateOf(false) }
     
+    // Smoothing: track last emitted values to prevent micro-jitter
+    var lastEmittedSat by remember { mutableFloatStateOf(saturation) }
+    var lastEmittedBri by remember { mutableFloatStateOf(brightness) }
+    val threshold = 0.005f // Minimum change to emit (0.5%)
+    
+    fun emitIfChanged(newSat: Float, newBri: Float) {
+        if (abs(newSat - lastEmittedSat) >= threshold || 
+            abs(newBri - lastEmittedBri) >= threshold) {
+            lastEmittedSat = newSat
+            lastEmittedBri = newBri
+            onValueSelected(newSat, newBri)
+        }
+    }
+    
     Canvas(
         modifier = modifier
             .pointerInput(Unit) {
@@ -212,6 +247,8 @@ private fun CompactSatBriSquare(
                         
                         val sat = (offset.x / size.width).coerceIn(0f, 1f)
                         val bri = (1f - offset.y / size.height).coerceIn(0f, 1f)
+                        lastEmittedSat = sat
+                        lastEmittedBri = bri
                         onValueSelected(sat, bri)
                     },
                     onDragEnd = {
@@ -220,7 +257,7 @@ private fun CompactSatBriSquare(
                     onDrag = { change, _ ->
                         val sat = (change.position.x / size.width).coerceIn(0f, 1f)
                         val bri = (1f - change.position.y / size.height).coerceIn(0f, 1f)
-                        onValueSelected(sat, bri)
+                        emitIfChanged(sat, bri)
                     }
                 )
             }
@@ -230,6 +267,8 @@ private fun CompactSatBriSquare(
                     val bri = (1f - offset.y / size.height).coerceIn(0f, 1f)
                     
                     view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                    lastEmittedSat = sat
+                    lastEmittedBri = bri
                     onValueSelected(sat, bri)
                 }
             }

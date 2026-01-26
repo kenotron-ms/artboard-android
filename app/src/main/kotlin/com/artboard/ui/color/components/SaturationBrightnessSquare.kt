@@ -1,5 +1,6 @@
 package com.artboard.ui.color.components
 
+import android.view.HapticFeedbackConstants
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -16,12 +17,15 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
-import android.view.HapticFeedbackConstants
+import kotlin.math.abs
 
 /**
  * 2D gradient square for saturation and brightness selection.
  * Displays a gradient from white (left) to current hue (right),
  * with black overlay from top to bottom.
+ * 
+ * Performance optimized:
+ * - Input smoothing to reduce jitter
  * 
  * @param hue Current hue (0-360 degrees)
  * @param saturation Current saturation (0-1)
@@ -40,6 +44,20 @@ fun SaturationBrightnessSquare(
     val view = LocalView.current
     var isDragging by remember { mutableStateOf(false) }
     
+    // Smoothing: track last emitted values to prevent micro-jitter
+    var lastEmittedSat by remember { mutableFloatStateOf(saturation) }
+    var lastEmittedBri by remember { mutableFloatStateOf(brightness) }
+    val threshold = 0.005f // Minimum change to emit (0.5%)
+    
+    fun emitIfChanged(newSat: Float, newBri: Float) {
+        if (abs(newSat - lastEmittedSat) >= threshold || 
+            abs(newBri - lastEmittedBri) >= threshold) {
+            lastEmittedSat = newSat
+            lastEmittedBri = newBri
+            onValueSelected(newSat, newBri)
+        }
+    }
+    
     Canvas(
         modifier = modifier
             .size(200.dp)
@@ -52,6 +70,8 @@ fun SaturationBrightnessSquare(
                         
                         val sat = (offset.x / size.width).coerceIn(0f, 1f)
                         val bri = (1f - offset.y / size.height).coerceIn(0f, 1f)
+                        lastEmittedSat = sat
+                        lastEmittedBri = bri
                         onValueSelected(sat, bri)
                     },
                     onDragEnd = {
@@ -60,7 +80,7 @@ fun SaturationBrightnessSquare(
                     onDrag = { change, _ ->
                         val sat = (change.position.x / size.width).coerceIn(0f, 1f)
                         val bri = (1f - change.position.y / size.height).coerceIn(0f, 1f)
-                        onValueSelected(sat, bri)
+                        emitIfChanged(sat, bri)
                     }
                 )
             }
@@ -70,6 +90,8 @@ fun SaturationBrightnessSquare(
                     val bri = (1f - offset.y / size.height).coerceIn(0f, 1f)
                     
                     view.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP)
+                    lastEmittedSat = sat
+                    lastEmittedBri = bri
                     onValueSelected(sat, bri)
                 }
             }
@@ -118,7 +140,7 @@ fun SaturationBrightnessSquare(
             style = Stroke(width = 2.dp.toPx())
         )
         
-        // Optional: Add glow effect when dragging
+        // Add glow effect when dragging
         if (isDragging) {
             drawCircle(
                 color = Color.White.copy(alpha = 0.3f),
